@@ -1,0 +1,45 @@
+{
+  "show total revenue by region": {
+    "sql": "SELECT region, SUM(revenue) FROM sales GROUP BY region",
+    "type": "aggregation",
+    "table": "sales",
+    "result": {
+      "North": 1800,
+      "South": 1500
+    }
+  },
+  "show all sales in january": {
+    "sql": "SELECT * FROM sales WHERE month = 'January'",
+    "type": "filter",
+    "table": "sales",
+    "result": [
+      { "region": "North", "revenue": 1000, "month": "January" },
+      { "region": "South", "revenue": 1500, "month": "January" }
+    ]
+  },
+  "get average order value": {
+    "sql": "SELECT AVG(amount) FROM orders",
+    "type": "aggregation",
+    "table": "orders",
+    "result": {
+      "average_order_value": 235.5
+    }
+  },
+  "list all active users": {
+    "sql": "SELECT * FROM users WHERE status = 'active'",
+    "type": "filter",
+    "table": "users",
+    "result": [
+      { "id": 1, "name": "Alice", "status": "active" },
+      { "id": 2, "name": "Bob", "status": "active" }
+    ]
+  },
+  "how many orders were placed in march": {
+    "sql": "SELECT COUNT(*) FROM orders WHERE month = 'March'",
+    "type": "aggregation",
+    "table": "orders",
+    "result": {
+      "order_count": 47
+    }
+  }
+}
